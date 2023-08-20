@@ -1,3 +1,15 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		305233642A91AA31006DF15D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 305233632A91AA31006DF15D /* main.c */; };
+		3052336C2A91DBF8006DF15D /* PossibleValues.c in Sources */ = {isa = PBXBuildFile; fileRef = 3052336B2A91DBF8006DF15D /* PossibleValues.c */; };
+		3052336F2A91DC2F006DF15D /* WriteToConsole.c in Sources */ = {isa = PBXBuildFile; fileRef = 3052336E2A91DC2F006DF15D /* WriteToConsole.c */; };
 		305233722A91DCD7006DF15D /* Position.c in Sources */ = {isa = PBXBuildFile; fileRef = 305233712A91DCD7006DF15D /* Position.c */; };
 		305233762A91DF02006DF15D /* Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 305233752A91DF02006DF15D /* Arguments.c */; };
 /* End PBXBuildFile section */
