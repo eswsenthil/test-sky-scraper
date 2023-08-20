@@ -10,7 +10,6 @@
 		305233642A91AA31006DF15D /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = 305233632A91AA31006DF15D /* main.c */; };
 		3052336C2A91DBF8006DF15D /* PossibleValues.c in Sources */ = {isa = PBXBuildFile; fileRef = 3052336B2A91DBF8006DF15D /* PossibleValues.c */; };
 		3052336F2A91DC2F006DF15D /* WriteToConsole.c in Sources */ = {isa = PBXBuildFile; fileRef = 3052336E2A91DC2F006DF15D /* WriteToConsole.c */; };
-		305233722A91DCD7006DF15D /* Position.c in Sources */ = {isa = PBXBuildFile; fileRef = 305233712A91DCD7006DF15D /* Position.c */; };
 		305233762A91DF02006DF15D /* Arguments.c in Sources */ = {isa = PBXBuildFile; fileRef = 305233752A91DF02006DF15D /* Arguments.c */; };
 /* End PBXBuildFile section */
 
@@ -33,8 +32,6 @@
 		3052336B2A91DBF8006DF15D /* PossibleValues.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = PossibleValues.c; sourceTree = "<group>"; };
 		3052336D2A91DC2F006DF15D /* WriteToConsole.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WriteToConsole.h; sourceTree = "<group>"; };
 		3052336E2A91DC2F006DF15D /* WriteToConsole.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = WriteToConsole.c; sourceTree = "<group>"; };
-		305233702A91DCD7006DF15D /* Position.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Position.h; sourceTree = "<group>"; };
-		305233712A91DCD7006DF15D /* Position.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Position.c; sourceTree = "<group>"; };
 		305233732A91DE01006DF15D /* Constants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		305233742A91DF02006DF15D /* Arguments.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Arguments.h; sourceTree = "<group>"; };
 		305233752A91DF02006DF15D /* Arguments.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Arguments.c; sourceTree = "<group>"; };
@@ -75,8 +72,6 @@
 				3052336B2A91DBF8006DF15D /* PossibleValues.c */,
 				3052336D2A91DC2F006DF15D /* WriteToConsole.h */,
 				3052336E2A91DC2F006DF15D /* WriteToConsole.c */,
-				305233702A91DCD7006DF15D /* Position.h */,
-				305233712A91DCD7006DF15D /* Position.c */,
 				305233732A91DE01006DF15D /* Constants.h */,
 				305233742A91DF02006DF15D /* Arguments.h */,
 				305233752A91DF02006DF15D /* Arguments.c */,
@@ -142,7 +137,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				305233762A91DF02006DF15D /* Arguments.c in Sources */,
-				305233722A91DCD7006DF15D /* Position.c in Sources */,
 				3052336C2A91DBF8006DF15D /* PossibleValues.c in Sources */,
 				3052336F2A91DC2F006DF15D /* WriteToConsole.c in Sources */,
 				305233642A91AA31006DF15D /* main.c in Sources */,
