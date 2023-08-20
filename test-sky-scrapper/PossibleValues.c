@@ -248,166 +248,6 @@ int setValueForRowColumn(int rowIndex, int colIndex, int value)
 }
 
 
-int reduceMinAndMaxFromLeft(void)
-{
-    int rowIndex = 0;
-    int colIndex = 0;
-    
-    while (rowIndex < gNumRows) {
-        if (gRowLeft[rowIndex] == 1) {
-            setValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueExcludingRowColumn(rowIndex, colIndex, 4);
-            printf("Handle gRowLeft[%d] == 1 for column 0\n", rowIndex);
-            printPossibleValues();
-        }
-        else if (gRowLeft[rowIndex] == 4) {
-            int tmpColIndex = colIndex;
-            while (tmpColIndex < gNumCols) {
-                setValueForRowColumn(rowIndex, tmpColIndex, 1 + tmpColIndex);
-                removeValueExcludingRowColumn(rowIndex, tmpColIndex, 1 + tmpColIndex);
-                ++tmpColIndex;
-            }
-            printf("Handle gRowLeft[%d] == 4 for column 0\n", rowIndex);
-            printPossibleValues();
-        }
-        else if (gRowLeft[rowIndex] == 3) {
-            // only 1 and 2 are allowed. 3 and 4 are not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueForRowColumn(rowIndex, colIndex, 3);
-        }
-        else if (gRowLeft[rowIndex] == 2) {
-            // only 1, 2 and 3 are allowed. 4 is not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-        }
-        ++rowIndex;
-    }
-    
-    return (0);
-}
-
-int reduceMinAndMaxFromRight(void)
-{
-    int rowIndex = 0;
-    int colIndex = gNumCols - 1;
-    
-    while (rowIndex < gNumRows) {
-        if (gRowRight[rowIndex] == 1) {
-            setValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueExcludingRowColumn(rowIndex, colIndex, 4);
-            printf("Handle gRowRight[%d] == 1 for column 3\n", rowIndex);
-            printPossibleValues();
-        }
-        else if (gRowRight[rowIndex] == 4) {
-            int tmpColIndex = 0;
-            while (tmpColIndex < gNumCols) {
-                setValueForRowColumn(rowIndex, tmpColIndex, 1 + tmpColIndex);
-                removeValueExcludingRowColumn(rowIndex, tmpColIndex, 1 + tmpColIndex);
-                ++tmpColIndex;
-            }
-            printf("Handle gRowRight[%d] == 4 for column 3\n", rowIndex);
-            printPossibleValues();
-        }
-        else if (gRowRight[rowIndex] == 3) {
-            // only 1 and 2 are allowed. 3 and 4 are not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueForRowColumn(rowIndex, colIndex, 3);
-        }
-        else if (gRowRight[rowIndex] == 2) {
-            // only 1, 2 and 3 are allowed. 4 is not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-        }
-        
-        ++rowIndex;
-    }
-    return 0;
-}
-
-int reduceMinAndMaxFromTop(void)
-{
-    int rowIndex = 0;
-    int colIndex = 0;
-    
-    while (colIndex < gNumCols) {
-        if (gColUp[colIndex] == 1) {
-                setValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueExcludingRowColumn(rowIndex, colIndex, 4);
-                printf("Handle gColUp[%d] == 1\n", colIndex);
-                printPossibleValues();
-        }
-        else if (gColUp[colIndex] == 4) {
-            int tmpRowIndex = rowIndex;
-            while (tmpRowIndex < gNumRows) {
-                setValueForRowColumn(tmpRowIndex, colIndex, 1 + tmpRowIndex);
-                removeValueExcludingRowColumn(tmpRowIndex, colIndex, 1 + tmpRowIndex);
-                ++tmpRowIndex;
-            }
-            printf("Handle gColUp[%d] == 4\n", colIndex);
-            printPossibleValues();
-        }
-        else if (gColUp[rowIndex] == 3) {
-            // only 1 and 2 are allowed. 3 and 4 are not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueForRowColumn(rowIndex, colIndex, 3);
-        }
-        else if (gColUp[rowIndex] == 2) {
-            // only 1, 2 and 3 are allowed. 4 is not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-        }
-        
-        ++colIndex;
-    }
-    
-    return (0);
-}
-
-int reduceMinAndMaxFromBottom(void)
-{
-    int rowIndex = gNumRows - 1;
-    int colIndex = 0;
-    
-    while (colIndex < gNumCols) {
-        if (gColDown[colIndex] == 1) {
-            setValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueExcludingRowColumn(rowIndex, colIndex, 4);
-            printf("Handle gColDown[%d] == 1\n", colIndex);
-            printPossibleValues();
-        }
-        else if (gColDown[colIndex] == 4) {
-            int tmpRowIndex = rowIndex;
-            while (tmpRowIndex >= 0) {
-                setValueForRowColumn(tmpRowIndex, colIndex, 1 + tmpRowIndex);
-                removeValueExcludingRowColumn(tmpRowIndex, colIndex, 1 + tmpRowIndex);
-                --tmpRowIndex;
-            }
-            printf("Handle gColUp[%d] == 4\n", colIndex);
-            printPossibleValues();
-        }
-        else if (gColDown[rowIndex] == 3) {
-            // only 1 and 2 are allowed. 3 and 4 are not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-            removeValueForRowColumn(rowIndex, colIndex, 3);
-        }
-        else if (gColDown[rowIndex] == 2) {
-            // only 1, 2 and 3 are allowed. 4 is not allowed.
-            removeValueForRowColumn(rowIndex, colIndex, 4);
-        }
-        ++colIndex;
-    }
-    
-    return (0);
-}
-
-
-int reduceMinAndMax(void)
-{
-    reduceMinAndMaxFromLeft();
-    reduceMinAndMaxFromRight();
-    reduceMinAndMaxFromTop();
-    reduceMinAndMaxFromBottom();
-    
-    return 0;
-}
-
 int guessIndicesForTallestBuilding(int numOfBuildingsVisible, int direction, int* minIndex, int *maxIndex)
 {
     *minIndex = numOfBuildingsVisible - 1;
@@ -536,9 +376,7 @@ int reduceFromColumnsClue(int *visibleBuildings, int direction, int allowedValue
 }
 
 int solve(void)
-{
-//    reduceMinAndMax();
-    
+{    
     int clueOrder[4] = { 4, 1, 3, 2 };
     int clueIndex = 0;
     while (clueIndex < 4) {
@@ -549,7 +387,6 @@ int solve(void)
         ++clueIndex;
     }
     
-//    iteration1();
     return 0;
 }
 
